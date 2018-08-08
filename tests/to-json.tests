@@ -1,0 +1,18 @@
+Red [
+    Tests: [%json.red]
+]
+
+[to-json none]
+[to-json true]
+[to-json false]
+[to-json 1]
+[to-json -1200.0]
+[to-json "abc"]
+[to-json "^@^_"]
+[to-json "仁人"]
+[to-json []]
+[to-json ["A" 1]]
+[to-json #()]
+[to-json #("a" #("b" #("c" 3)))]
+[to-json #("a" #("b" #("c" 3 "d" 4)))]
+[to-json #("A" 1 "a" #("b" #("c" 3 "d" ["x" "y" [3 4] "z"])) "B" 2)]

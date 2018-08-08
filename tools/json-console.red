@@ -1,6 +1,6 @@
 Red []
 
-do %json.red
+do %../json.red
 
 print mold load-json "null"
 print mold load-json "true"

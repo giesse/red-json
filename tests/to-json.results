@@ -1,0 +1,107 @@
+
+    #(
+        test: [to-json none]
+        result: "null"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json true]
+        result: "true"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json false]
+        result: "false"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json 1]
+        result: "1"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json -1200.0]
+        result: "-1200.0"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json "abc"]
+        result: {"abc"}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json "^@^_"]
+        result: {"\u0000\u001F"}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json "^(4EC1)^(4EBA)"]
+        result: {"^(4EC1)^(4EBA)"}
+        type: string!
+        status: Failure
+    ) 
+    #(
+        test: [to-json []]
+        result: "[^/^/]"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json ["A" 1]]
+        result: {[^/    "A",^/    1^/]}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json #()]
+        result: "{^/^/}"
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json #(
+            "a" #(
+                "b" #(
+                    "c" 3
+                )
+            )
+        )]
+        result: {{^/    "a": {^/        "b": {^/            "c": 3^/        }^/    }^/}}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json #(
+            "a" #(
+                "b" #(
+                    "c" 3
+                    "d" 4
+                )
+            )
+        )]
+        result: {{^/    "a": {^/        "b": {^/            "c": 3,^/            "d": 4^/        }^/    }^/}}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json #(
+            "A" 1
+            "a" #(
+                "b" #(
+                    "c" 3
+                    "d" ["x" "y" [3 4] "z"]
+                )
+            )
+            "B" 2
+        )]
+        result: {{^/    "A": 1,^/    "a": 1,^/    "B": 2^/}}
+        type: string!
+        status: Failure
+    )

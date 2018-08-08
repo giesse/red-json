@@ -1,8 +1,8 @@
 Red []
 
-do %json.red
+do %../json.red
 
-change-dir %tests/
+change-dir %../tests/
 
 pass?: func [file] [not error? set/any 'err try [load-json read file]]
 fail?: func [file] [error? set/any 'err try [load-json read file]]
