@@ -45,7 +45,7 @@
         test: [to-json "^(4EC1)^(4EBA)"]
         result: {"^(4EC1)^(4EBA)"}
         type: string!
-        status: Failure
+        status: Pass
     ) 
     #(
         test: [to-json []]
