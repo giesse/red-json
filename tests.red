@@ -1,5 +1,36 @@
 Red []
 
+delta-time*: function [code count] [
+    start: now/precise
+    loop count code
+    difference now/precise start
+]
+delta-time: function [
+    "Return the time it takes to evaluate a block"
+    code [block! word! function!] "Code to evaluate"
+    /accuracy run-time [time! none!] "Longer time gives more accurate results, but takes longer to compute. Default 0:00:00.1"
+][
+    run-time: any [run-time 0:00:00.1]
+    time: 0:00:00
+    count: 1
+    if word? :code [code: get code]
+    cd: either block? :code [code] [[code]]
+    while [time < run-time] [
+        time: delta-time* cd count
+        ; if your computer is really really fast, or now/precise is not accurate enough
+        ; (hello Windows users!)
+        either time > 0 [
+            result: time / count
+            ; multiply by 1.5 for faster convergence
+            ; (ie. aim for 1.5*run-time)
+            count: to integer! run-time * count * 1.5 / time
+        ] [
+            count: count * 10
+        ]
+    ]
+    result
+]
+
 test-file?: func [file] [
     %.tests = suffix? file
 ]
@@ -14,7 +45,7 @@ load-header: function [file] [
 run-test-file: function [file] [
     print file
     file: clean-path rejoin [%tests/ file]
-    summary: copy #(passed: 0 failed: 0 unknown: 0) 
+    summary: copy #(passed: 0 failed: 0 unknown: 0 perf-regressions: 0) 
     error: result: none ; to let FUNCTION catch them as a local
     bare-file: copy/part file skip tail file -6
     results-file: rejoin [bare-file %.results]
@@ -32,6 +63,7 @@ run-test-file: function [file] [
         print [tab "TESTS:" mold/only files-to-test]
     ]
     results: either exists? results-file [load results-file] [copy []]
+    perf: either exists? perf-file [load perf-file] [copy []]
     until [
         file: next file
         throw-test: copy ""
@@ -45,6 +77,15 @@ run-test-file: function [file] [
                     false [false]
                 ]
             ]
+        ]
+        unless perf-data: perf/1 [
+            perf-data: make map! []
+            perf-data/test: file/1
+            perf-data/samples: copy []
+            append perf perf-data
+        ]
+        if perf-data/test <> current-result/test [
+            print [tab "WARNING: Test" index? perf "has changed, can't accurately determine performance regressions"]
         ]
         ; trick to determine if there was a throw: human is unique at this point and
         ; there is no way file/1 would accidentally throw it
@@ -125,26 +166,48 @@ run-test-file: function [file] [
                 'Unknown
             ]
         ]
+        time: to float! delta-time [catch [try file/1]]
+        if any [empty? perf-data/samples perf-data/fastest > time] [
+            perf-data/fastest: time
+        ]
+        append perf-data/samples time
+        speed: time / perf-data/fastest
+        if speed > 1.05 [
+            print [tab "WARNING: Test" index? perf "ran" round/to speed 0.01 "times slower than fastest sample"]
+            summary/perf-regressions: summary/perf-regressions + 1
+        ]
         results: next results
+        perf: next perf
         tail? next file
     ]
     clear results ; remove extra results
     results: head results
     new-line/all results true
     write results-file mold/only/all results
-    print [tab "PASSED:" summary/passed newline tab "FAILED:" summary/failed newline tab "UNKNOWN:" summary/unknown]
+    clear perf ; remove extra samples
+    perf: head perf
+    new-line/all perf true
+    write perf-file mold/only/all perf
+    print [
+        tab "PASSED:" summary/passed newline
+        tab "FAILED:" summary/failed newline
+        tab "UNKNOWN:" summary/unknown newline
+        tab "PERF. REGRESSIONS:" summary/perf-regressions
+    ]
     summary
 ]
 
-total-passed: total-failed: total-unknown: 0
+total-passed: total-failed: total-unknown: total-perf-regressions: 0
 foreach file read %tests/ [
     if test-file? file [
         summary: run-test-file file
         total-passed: total-passed + summary/passed
         total-failed: total-failed + summary/failed
         total-unknown: total-unknown + summary/unknown
+        total-perf-regressions: total-perf-regressions + summary/perf-regressions
     ]
 ]
 print ["TOTAL PASSED:" total-passed]
 print ["TOTAL FAILED:" total-failed]
 print ["TOTAL UNKNOWN:" total-unknown]
+print ["TOTAL PERF. REGRESSIONS:" total-perf-regressions]
