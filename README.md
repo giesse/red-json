@@ -9,6 +9,9 @@ Once the core works, the big difference from Rebol is that we have `load/as`
 and `save/as` that work with `system/codecs` (see %red/environment/codecs/)
 rather than just creating `to-json/load-json` global funcs.
 
+Note: Red's integers are only 32bits while JSON data may contain 64bit integers (eg. see tests/data/twitter.json).
+This could be a source of silent bugs. Please beware.
+
 # Testing
 
 - %tests.red                   Runs all the tests

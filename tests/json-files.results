@@ -1,75 +1,75 @@
 
     #(
         test: [mold/all loaded: load-json read %tests/data/canada.json]
-        result: #{F906ABA51497028FECF8CAE669B376F62A51CE30}
+        result: #{DC46350990907256923C09095F1E44E9E1B86BBC}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [to-json loaded]
-        result: #{7154A94AA02367C0FEF4BA77F404471E3D07C26C}
+        result: #{25B34A39E945366169D4539A1CDAE7B92A4599B8}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [mold/all loaded: load-json read %tests/data/citm_catalog.json]
         result: #{8182345613352604470528DE3404C4FC1283867C}
         type: string!
-        status: Unknown
+        status: Failure
     ) 
     #(
         test: [to-json loaded]
         result: #{E935BE495B6FDBE07AACF6E578CC6F9666FE1474}
         type: string!
-        status: Unknown
+        status: Failure
     ) 
     #(
         test: [mold/all loaded: load-json read %tests/data/really-big-1.json]
         result: #{F1D83FFC85AE73401D46FD599E37BCED6145BB51}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [to-json loaded]
         result: #{36C633F2301B7298F581D91BBA1160325A2FA1AA}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [mold/all loaded: load-json read %tests/data/really-big-2.json]
         result: #{1D3C703E6BEF05C99FCA3CE74CB05FDAD4A4F441}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [to-json loaded]
         result: #{057789A91CA53F34E91D420B273539B9E0E82FE9}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [mold/all loaded: load-json read %tests/data/really-big-3.json]
         result: #{3A52AE018B4ABEC820435F3FC342D5089F78C03A}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [to-json loaded]
         result: #{39DD4735AA08FE0550E90E9929EF58DEB67DF999}
         type: string!
-        status: Unknown
+        status: Pass
     ) 
     #(
         test: [mold/all loaded: load-json read %tests/data/twitter.json]
         result: #{C7545F65F6051A027F70F5B56683A17A88C87DB6}
         type: string!
-        status: Unknown
+        status: Failure
     ) 
     #(
         test: [to-json loaded]
         result: #{FE0492699AE84315C185BD6502D8ACFAE3B86D53}
         type: string!
-        status: Unknown
+        status: Failure
     ) 
     #(
         test: [loaded: load-json read %tests/data/pass-rondon.json]
@@ -188,7 +188,7 @@
             {/\"^(CAFE)^(BABE)^(AB98)^(FCDE)^(BCDA)^(EF4A)^H^L^/^M^-`1~!@#$%^^&*()_+-=[]{}|;:',./<>?} {A key can be any string, but ^(DEAD) is a bad escaped value (unmatched surrogate pair).}
         ) 0.5 98.6 99.44 1066 10.0 1.0 0.1 1.0 2.0 2.0 "rosebud" "^(4EC1)^(4EBA)"]
         type: block!
-        status: Unknown
+        status: Failure
     ) 
     #(
         test: [to-json loaded]
