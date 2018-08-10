@@ -135,4 +135,10 @@
         result: {*** User Error: {Invalid json string. Near: "NULL"}^/*** Where: ???}
         type: error!
         status: Pass
+    ) 
+    #(
+        test: [load-json {"Not a tab \T"}]
+        result: {*** User Error: {Invalid json string. Near: {"Not a tab \T"}}^/*** Where: ???}
+        type: error!
+        status: Pass
     )
