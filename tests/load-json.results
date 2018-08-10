@@ -123,4 +123,16 @@
         )
         type: map!
         status: Pass
+    ) 
+    #(
+        test: [load-json "TRUE"]
+        result: {*** User Error: {Invalid json string. Near: "TRUE"}^/*** Where: ???}
+        type: error!
+        status: Pass
+    ) 
+    #(
+        test: [load-json "NULL"]
+        result: {*** User Error: {Invalid json string. Near: "NULL"}^/*** Where: ???}
+        type: error!
+        status: Pass
     )
