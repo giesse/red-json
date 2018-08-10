@@ -1,0 +1,11 @@
+Red [
+    Tests: [%codecs.red]
+]
+
+[load %tests/data/pass-rondon.json]
+[load/as {{"A": 1, "a": {"b": { "c": 3, "d": [ "x", "y", [3, 4 ], "z"] }}, "B": 2}} 'json]
+[save/as none #("a" #("b" #("c" 3 "d" 4))) 'json]
+[
+    save %tests/data/output.json #("a" #("b" #("c" 3 "d" 4)))
+    read %tests/data/output.json
+]
