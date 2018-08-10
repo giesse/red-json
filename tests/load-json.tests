@@ -1,5 +1,5 @@
 Red [
-    Tests: [%json.red]
+    Tests: [%load-json.red]
 ]
 
 [load-json "null"]

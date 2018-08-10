@@ -1,5 +1,5 @@
 Red [
-    Tests: [%json.red]
+    Tests: [%to-json.red]
 ]
 
 [to-json none]

@@ -1,5 +1,5 @@
 Red [
-    Tests: [%json.red]
+    Tests: [%load-json.red %to-json.red]
 ]
 
 [mold/all loaded: load-json read %tests/data/canada.json]
