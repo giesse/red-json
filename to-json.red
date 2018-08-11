@@ -185,7 +185,7 @@ context [
 		foreach word words-of map [
 			append result rejoin [
 				dent red-to-json-name :word " "
-				red-to-json-value map/:word ",^/"
+				red-to-json-value select/case map word ",^/"
 			]
 		]
 		outdent

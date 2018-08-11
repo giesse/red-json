@@ -12,6 +12,9 @@ rather than just creating `to-json/load-json` global funcs.
 Note: Red's integers are only 32bits while JSON data may contain 64bit integers (eg. see tests/data/twitter.json).
 This could be a source of silent bugs. Please beware.
 
+Also, please be aware that keys in JSON data are case sensitive. Use `select/case` and `put/case` on the resulting
+Red maps if needed.
+
 # Testing
 
 - %tests.red                   Runs all the tests
