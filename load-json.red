@@ -145,7 +145,7 @@ context [
 		; the insertion point for another value to go out into '_res,
 		; but we want the target to be the block we just added, so
 		; we reset '_res to that after 'emit is done.
-		#"{" (push emit copy []  _res: last _res)
+		#"{" (push emit _tmp: copy []  _res: _tmp)
 		ws* opt property-list
 		; This is a little confusing. We're at the tail of our current
 		; output target, which is on our stack. We pop that, then need
@@ -175,7 +175,7 @@ context [
 		; the insertion point for another value to go out into '_res,
 		; but we want the target to be the block we just added, so
 		; we reset '_res to that after 'emit is done.
-		#"[" (push emit copy []  _res: last _res)
+		#"[" (push emit _tmp: copy []  _res: _tmp)
 		ws* opt array-list
 		#"]" (_res: pop)
 	]
@@ -207,6 +207,7 @@ context [
 
 	_out: none	; Our overall output target/result                          
 	_res: none	; The current output position where new values are inserted
+	_tmp: none  ; Temporary
 	_str: none	; Where string value parse results go               
 	mark: none	; Current parse position
 	
