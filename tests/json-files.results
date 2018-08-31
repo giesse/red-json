@@ -19,7 +19,7 @@
     ) 
     #(
         test: [to-json loaded]
-        result: #{E935BE495B6FDBE07AACF6E578CC6F9666FE1474}
+        result: #{6609022C6BD3ACF2983633D8A98F62250237F7A7}
         type: string!
         status: Failure
     ) 
@@ -67,7 +67,7 @@
     ) 
     #(
         test: [to-json loaded]
-        result: #{FE0492699AE84315C185BD6502D8ACFAE3B86D53}
+        result: #{4C4E7110CD72566D63AFB216FB3AB31E4BDB3FD6}
         type: string!
         status: Failure
     ) 
@@ -134,9 +134,9 @@
     ) 
     #(
         test: [to-json loaded]
-        result: {{^/    "r": {^/        "t": "1",^/        "f": "Simulado",^/        "dt": "24\/09\/2008",^/        "ht": "17:06",^/        "dg": "03\/10\/2008",^/        "hg": "14:51",^/        "tf": "false",^/        "v": "1"^/    },^/    "c": {^/        "1": {^/            "cc": "PTB \/ PTN \/ PSC \/ PRTB \/ PHS \/ PTC \/ PSB",^/            "n": "19",^/            "nm": "VIDAL",^/            "nv": "MARCELO YASSER S^(C9)RGIO",^/            "e": "false",^/            "v": "412615"^/        },^/        "2": {^/            "cc": "PT",^/            "n": "13",^/            "nm": "RAQUEL",^/            "nv": "ELIAS S^(C9)RGIO STEFANO",^/            "e": "false",^/            "v": "152981"^/        },^/        "3": {^/            "cc": "PMDB",^/            "n": "15",^/            "nm": "IBRAIM",^/            "nv": "HIGINO QUINCAS EDMUNDO",^/            "e": "false",^/            "v": "115074"^/        },^/        "4": {^/            "cc": "PRB \/ PSL \/ DEM \/ PSDC \/ PSDB \/ PC do B",^/            "n": "65",^/            "nm": "XISTO",^/            "nv": "CL^(C9)LIA GUILHERMINA AURORA",^/            "e": "false",^/            "v": "8822"^/        }^/    },^/    "t": {^/        "s": "2249",^/        "st": "2249",^/        "e": "843540",^/        "ea": "843540",^/        "c": "760195",^/        "vb": "46778",^/        "vn": "23925",^/        "vv": "689492"^/    }^/}}
+        result: {{^/    "r": {^/        "t": "1",^/        "f": "Simulado",^/        "dt": "24/09/2008",^/        "ht": "17:06",^/        "dg": "03/10/2008",^/        "hg": "14:51",^/        "tf": "false",^/        "v": "1"^/    },^/    "c": {^/        "1": {^/            "cc": "PTB / PTN / PSC / PRTB / PHS / PTC / PSB",^/            "n": "19",^/            "nm": "VIDAL",^/            "nv": "MARCELO YASSER S^(C9)RGIO",^/            "e": "false",^/            "v": "412615"^/        },^/        "2": {^/            "cc": "PT",^/            "n": "13",^/            "nm": "RAQUEL",^/            "nv": "ELIAS S^(C9)RGIO STEFANO",^/            "e": "false",^/            "v": "152981"^/        },^/        "3": {^/            "cc": "PMDB",^/            "n": "15",^/            "nm": "IBRAIM",^/            "nv": "HIGINO QUINCAS EDMUNDO",^/            "e": "false",^/            "v": "115074"^/        },^/        "4": {^/            "cc": "PRB / PSL / DEM / PSDC / PSDB / PC do B",^/            "n": "65",^/            "nm": "XISTO",^/            "nv": "CL^(C9)LIA GUILHERMINA AURORA",^/            "e": "false",^/            "v": "8822"^/        }^/    },^/    "t": {^/        "s": "2249",^/        "st": "2249",^/        "e": "843540",^/        "ea": "843540",^/        "c": "760195",^/        "vb": "46778",^/        "vn": "23925",^/        "vv": "689492"^/    }^/}}
         type: string!
-        status: Failure
+        status: Pass
     ) 
     #(
         test: [loaded: load-json read %tests/data/pass0.json]
@@ -192,7 +192,7 @@
     ) 
     #(
         test: [to-json loaded]
-        result: {[^/    "JSON Test Pattern pass1",^/    {^/        "object with 1 member": [^/            "array with 1 element"^/        ]^/    },^/    {^/^/    },^/    [^/^/    ],^/    -42,^/    true,^/    false,^/    null,^/    {^/        "integer": 1234567890,^/        "real": -9876.54321,^/        "e": 1.23456789e-13,^/        "E": 1.23456789e34,^/        "": 2.3456789012e76,^/        "zero": 0,^/        "one": 1,^/        "space": " ",^/        "quote": "\"",^/        "backslash": "\\",^/        "controls": "\b\f\n\r\t",^/        "slash": "\/ & \/",^/        "alpha": "abcdefghijklmnopqrstuvwyz",^/        "ALPHA": "ABCDEFGHIJKLMNOPQRSTUVWYZ",^/        "digit": "0123456789",^/        "0123456789": "digit",^/        "special": "`1~!@#$%^^&*()_+-={':[,]}|;.<\/>?",^/        "hex": "^(123)^(4567)^(89AB)^(CDEF)^(ABCD)^(EF4A)",^/        "true": true,^/        "false": false,^/        "array": [^/^/        ],^/        "object": {^/^/        },^/        "address": "50 St. James Street",^/        "url": "http:\/\/www.JSON.org\/",^/        "comment": "\/\/ \/* <!-- --",^/        "# -- --> *\/": " ",^/        " s p a c e d ": [^/            1,^/            2,^/            3,^/            4,^/            5,^/            6,^/            7^/        ],^/        "compact": [^/            1,^/            2,^/            3,^/            4,^/            5,^/            6,^/            7^/        ],^/        "jsontext": "{\"object with 1 member\":[\"array with 1 element\"]}",^/        "quotes": "&#34; \" %22 0x22 034 &#x22;",^/        "\/\\\"^(CAFE)^(BABE)^(AB98)^(FCDE)^(BCDA)^(EF4A)\b\f\n\r\t`1~!@#$%^^&*()_+-=[]{}|;:',.\/<>?": "A key can be any string, but ^(DEAD) is a bad escaped value (unmatched surrogate pair)."^/    },^/    0.5,^/    98.6,^/    99.44,^/    1066,^/    10.0,^/    1.0,^/    0.1,^/    1.0,^/    2.0,^/    2.0,^/    "rosebud",^/    "^(4EC1)^(4EBA)"^/]}
+        result: {[^/    "JSON Test Pattern pass1",^/    {^/        "object with 1 member": [^/            "array with 1 element"^/        ]^/    },^/    {},^/    [],^/    -42,^/    true,^/    false,^/    null,^/    {^/        "integer": 1234567890,^/        "real": -9876.54321,^/        "e": 1.23456789e-13,^/        "E": 1.23456789e34,^/        "": 2.3456789012e76,^/        "zero": 0,^/        "one": 1,^/        "space": " ",^/        "quote": "\"",^/        "backslash": "\\",^/        "controls": "\b\f\n\r\t",^/        "slash": "/ & /",^/        "alpha": "abcdefghijklmnopqrstuvwyz",^/        "ALPHA": "ABCDEFGHIJKLMNOPQRSTUVWYZ",^/        "digit": "0123456789",^/        "0123456789": "digit",^/        "special": "`1~!@#$%^^&*()_+-={':[,]}|;.</>?",^/        "hex": "^(123)^(4567)^(89AB)^(CDEF)^(ABCD)^(EF4A)",^/        "true": true,^/        "false": false,^/        "array": [],^/        "object": {},^/        "address": "50 St. James Street",^/        "url": "http://www.JSON.org/",^/        "comment": "// /* <!-- --",^/        "# -- --> */": " ",^/        " s p a c e d ": [^/            1,^/            2,^/            3,^/            4,^/            5,^/            6,^/            7^/        ],^/        "compact": [^/            1,^/            2,^/            3,^/            4,^/            5,^/            6,^/            7^/        ],^/        "jsontext": "{\"object with 1 member\":[\"array with 1 element\"]}",^/        "quotes": "&#34; \" %22 0x22 034 &#x22;",^/        "/\\\"^(CAFE)^(BABE)^(AB98)^(FCDE)^(BCDA)^(EF4A)\b\f\n\r\t`1~!@#$%^^&*()_+-=[]{}|;:',./<>?": "A key can be any string, but ^(DEAD) is a bad escaped value (unmatched surrogate pair)."^/    },^/    0.5,^/    98.6,^/    99.44,^/    1066,^/    10.0,^/    1.0,^/    0.1,^/    1.0,^/    2.0,^/    2.0,^/    "rosebud",^/    "^(4EC1)^(4EBA)"^/]}
         type: string!
         status: Failure
     ) 

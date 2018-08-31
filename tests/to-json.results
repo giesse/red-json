@@ -49,7 +49,7 @@
     ) 
     #(
         test: [to-json []]
-        result: "[^/^/]"
+        result: "[]"
         type: string!
         status: Pass
     ) 
@@ -61,7 +61,7 @@
     ) 
     #(
         test: [to-json #()]
-        result: "{^/^/}"
+        result: "{}"
         type: string!
         status: Pass
     ) 
