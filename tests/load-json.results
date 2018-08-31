@@ -6,13 +6,13 @@
     ) 
     #(
         test: [load-json "true"]
-        result: true
+        result: #[true]
         type: logic!
         status: Pass
     ) 
     #(
         test: [load-json "false"]
-        result: false
+        result: #[false]
         type: logic!
         status: Pass
     ) 

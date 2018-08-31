@@ -84,7 +84,7 @@
                 )
             )
         ) 'json]
-        result: {{^/    "a": {^/        "b": {^/            "c": 3,^/            "d": 4^/        }^/    }^/}}
+        result: {{"a":{"b":{"c":3,"d":4}}}}
         type: string!
         status: Pass
     ) 
@@ -99,7 +99,7 @@
         ) 
             read %tests/data/output.json
         ]
-        result: {{^/    "a": {^/        "b": {^/            "c": 3,^/            "d": 4^/        }^/    }^/}}
+        result: {{"a":{"b":{"c":3,"d":4}}}}
         type: string!
         status: Pass
     )

@@ -204,8 +204,10 @@ context [
         [catch]
         "Convert Red data to a JSON string"
         data
+        /pretty indent [string!] "Pretty format the output, using given indentation"
+        /ascii "Force ASCII output (instead of UTF-8)"
     ] [
         result: make string! 4000
-        red-to-json-value result "    " false data
+        red-to-json-value result indent ascii data
     ]
 ]

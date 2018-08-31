@@ -6,7 +6,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: #{25B34A39E945366169D4539A1CDAE7B92A4599B8}
         type: string!
         status: Pass
@@ -18,7 +18,7 @@
         status: Failure
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: #{6609022C6BD3ACF2983633D8A98F62250237F7A7}
         type: string!
         status: Failure
@@ -30,7 +30,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: #{36C633F2301B7298F581D91BBA1160325A2FA1AA}
         type: string!
         status: Pass
@@ -42,7 +42,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: #{057789A91CA53F34E91D420B273539B9E0E82FE9}
         type: string!
         status: Pass
@@ -54,19 +54,19 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: #{39DD4735AA08FE0550E90E9929EF58DEB67DF999}
         type: string!
         status: Pass
     ) 
     #(
         test: [mold/all loaded: load-json read %tests/data/twitter.json]
-        result: #{C7545F65F6051A027F70F5B56683A17A88C87DB6}
+        result: #{16C3E42EEAA179997D007406BC1DF50249AF5D94}
         type: string!
         status: Failure
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: #{4C4E7110CD72566D63AFB216FB3AB31E4BDB3FD6}
         type: string!
         status: Failure
@@ -133,7 +133,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: {{^/    "r": {^/        "t": "1",^/        "f": "Simulado",^/        "dt": "24/09/2008",^/        "ht": "17:06",^/        "dg": "03/10/2008",^/        "hg": "14:51",^/        "tf": "false",^/        "v": "1"^/    },^/    "c": {^/        "1": {^/            "cc": "PTB / PTN / PSC / PRTB / PHS / PTC / PSB",^/            "n": "19",^/            "nm": "VIDAL",^/            "nv": "MARCELO YASSER S^(C9)RGIO",^/            "e": "false",^/            "v": "412615"^/        },^/        "2": {^/            "cc": "PT",^/            "n": "13",^/            "nm": "RAQUEL",^/            "nv": "ELIAS S^(C9)RGIO STEFANO",^/            "e": "false",^/            "v": "152981"^/        },^/        "3": {^/            "cc": "PMDB",^/            "n": "15",^/            "nm": "IBRAIM",^/            "nv": "HIGINO QUINCAS EDMUNDO",^/            "e": "false",^/            "v": "115074"^/        },^/        "4": {^/            "cc": "PRB / PSL / DEM / PSDC / PSDB / PC do B",^/            "n": "65",^/            "nm": "XISTO",^/            "nv": "CL^(C9)LIA GUILHERMINA AURORA",^/            "e": "false",^/            "v": "8822"^/        }^/    },^/    "t": {^/        "s": "2249",^/        "st": "2249",^/        "e": "843540",^/        "ea": "843540",^/        "c": "760195",^/        "vb": "46778",^/        "vn": "23925",^/        "vv": "689492"^/    }^/}}
         type: string!
         status: Pass
@@ -145,7 +145,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: {"A JSON payload may now be any value."}
         type: string!
         status: Pass
@@ -154,7 +154,7 @@
         test: [loaded: load-json read %tests/data/pass1.json]
         result: ["JSON Test Pattern pass1" #(
             "object with 1 member" ["array with 1 element"]
-        ) #() [] -42 true false none #(
+        ) #() [] -42 #[true] #[false] #[none] #(
             "integer" 1234567890
             "real" -9876.54321
             "e" 1.23456789e-13
@@ -173,8 +173,8 @@
             "0123456789" "digit"
             "special" "`1~!@#$%^^&*()_+-={':[,]}|;.</>?"
             "hex" "^(123)^(4567)^(89AB)^(CDEF)^(ABCD)^(EF4A)"
-            "true" true
-            "false" false
+            "true" #[true]
+            "false" #[false]
             "array" []
             "object" #()
             "address" "50 St. James Street"
@@ -191,7 +191,7 @@
         status: Failure
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: {[^/    "JSON Test Pattern pass1",^/    {^/        "object with 1 member": [^/            "array with 1 element"^/        ]^/    },^/    {},^/    [],^/    -42,^/    true,^/    false,^/    null,^/    {^/        "integer": 1234567890,^/        "real": -9876.54321,^/        "e": 1.23456789e-13,^/        "E": 1.23456789e34,^/        "": 2.3456789012e76,^/        "zero": 0,^/        "one": 1,^/        "space": " ",^/        "quote": "\"",^/        "backslash": "\\",^/        "controls": "\b\f\n\r\t",^/        "slash": "/ & /",^/        "alpha": "abcdefghijklmnopqrstuvwyz",^/        "ALPHA": "ABCDEFGHIJKLMNOPQRSTUVWYZ",^/        "digit": "0123456789",^/        "0123456789": "digit",^/        "special": "`1~!@#$%^^&*()_+-={':[,]}|;.</>?",^/        "hex": "^(123)^(4567)^(89AB)^(CDEF)^(ABCD)^(EF4A)",^/        "true": true,^/        "false": false,^/        "array": [],^/        "object": {},^/        "address": "50 St. James Street",^/        "url": "http://www.JSON.org/",^/        "comment": "// /* <!-- --",^/        "# -- --> */": " ",^/        " s p a c e d ": [^/            1,^/            2,^/            3,^/            4,^/            5,^/            6,^/            7^/        ],^/        "compact": [^/            1,^/            2,^/            3,^/            4,^/            5,^/            6,^/            7^/        ],^/        "jsontext": "{\"object with 1 member\":[\"array with 1 element\"]}",^/        "quotes": "&#34; \" %22 0x22 034 &#x22;",^/        "/\\\"^(CAFE)^(BABE)^(AB98)^(FCDE)^(BCDA)^(EF4A)\b\f\n\r\t`1~!@#$%^^&*()_+-=[]{}|;:',./<>?": "A key can be any string, but ^(DEAD) is a bad escaped value (unmatched surrogate pair)."^/    },^/    0.5,^/    98.6,^/    99.44,^/    1066,^/    10.0,^/    1.0,^/    0.1,^/    1.0,^/    2.0,^/    2.0,^/    "rosebud",^/    "^(4EC1)^(4EBA)"^/]}
         type: string!
         status: Failure
@@ -203,7 +203,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: {[^/    [^/        [^/            [^/                [^/                    [^/                        [^/                            [^/                                [^/                                    [^/                                        [^/                                            [^/                                                [^/                                                    [^/                                                        [^/                                                            [^/                                                                [^/                                                                    [^/                                                                        [^/                                                                            "Not too deep"^/                                                                        ]^/                                                                    ]^/                                                                ]^/                                                            ]^/                                                        ]^/                                                    ]^/                                                ]^/                                            ]^/                                        ]^/                                    ]^/                                ]^/                            ]^/                        ]^/                    ]^/                ]^/            ]^/        ]^/    ]^/]}
         type: string!
         status: Pass
@@ -220,7 +220,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: {{^/    "JSON Test Pattern pass3": {^/        "The outermost value": "must be an object or array.",^/        "In this test": "It is an object."^/    }^/}}
         type: string!
         status: Pass
@@ -232,7 +232,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json loaded]
+        test: [to-json/pretty loaded "    "]
         result: {[^/    [^/        [^/            [^/                [^/                    [^/                        [^/                            [^/                                [^/                                    [^/                                        [^/                                            [^/                                                [^/                                                    [^/                                                        [^/                                                            [^/                                                                [^/                                                                    [^/                                                                        [^/                                                                            [^/                                                                                "No depth limit in new RFC"^/                                                                            ]^/                                                                        ]^/                                                                    ]^/                                                                ]^/                                                            ]^/                                                        ]^/                                                    ]^/                                                ]^/                                            ]^/                                        ]^/                                    ]^/                                ]^/                            ]^/                        ]^/                    ]^/                ]^/            ]^/        ]^/    ]^/]}
         type: string!
         status: Pass
@@ -305,7 +305,7 @@
     ) 
     #(
         test: [load-json read %tests/data/fail11.json]
-        result: {*** User Error: ^{Invalid json string. Near: " + 2^^^}"^}^/*** Where: ???}
+        result: {*** User Error: {Invalid json string. Near: " + 2^^}"^}^/*** Where: ???}
         type: error!
         status: Pass
     ) 
@@ -317,13 +317,13 @@
     ) 
     #(
         test: [load-json read %tests/data/fail13.json]
-        result: {*** User Error: ^{Invalid json string. Near: "13^^^}"^}^/*** Where: ???}
+        result: {*** User Error: {Invalid json string. Near: "13^^}"^}^/*** Where: ???}
         type: error!
         status: Pass
     ) 
     #(
         test: [load-json read %tests/data/fail14.json]
-        result: {*** User Error: ^{Invalid json string. Near: "x14^^^}"^}^/*** Where: ???}
+        result: {*** User Error: {Invalid json string. Near: "x14^^}"^}^/*** Where: ???}
         type: error!
         status: Pass
     ) 
@@ -437,7 +437,7 @@
     ) 
     #(
         test: [load-json read %tests/data/fail33.json]
-        result: {*** User Error: ^{Invalid json string. Near: ^^^{["mismatch"^^^^^^^}^^^}^}^/*** Where: ???}
+        result: {*** User Error: {Invalid json string. Near: {["mismatch"^^^^}^^}^}^/*** Where: ???}
         type: error!
         status: Pass
     )

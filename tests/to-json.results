@@ -54,7 +54,7 @@
         status: Pass
     ) 
     #(
-        test: [to-json ["A" 1]]
+        test: [to-json/pretty ["A" 1] "    "]
         result: {[^/    "A",^/    1^/]}
         type: string!
         status: Pass
@@ -66,6 +66,52 @@
         status: Pass
     ) 
     #(
+        test: [to-json/pretty #(
+            "a" #(
+                "b" #(
+                    "c" 3
+                )
+            )
+        ) "    "]
+        result: {{^/    "a": {^/        "b": {^/            "c": 3^/        }^/    }^/}}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json/pretty #(
+            "a" #(
+                "b" #(
+                    "c" 3
+                    "d" 4
+                )
+            )
+        ) "    "]
+        result: {{^/    "a": {^/        "b": {^/            "c": 3,^/            "d": 4^/        }^/    }^/}}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json/pretty #(
+            "A" 1
+            "a" #(
+                "b" #(
+                    "c" 3
+                    "d" ["x" "y" [3 4] "z"]
+                )
+            )
+            "B" 2
+        ) "    "]
+        result: {{^/    "A": 1,^/    "a": {^/        "b": {^/            "c": 3,^/            "d": [^/                "x",^/                "y",^/                [^/                    3,^/                    4^/                ],^/                "z"^/            ]^/        }^/    },^/    "B": 2^/}}
+        type: string!
+        status: Pass
+    ) 
+    #(
+        test: [to-json ["A" 1]]
+        result: {["A",1]}
+        type: string!
+        status: Pass
+    ) 
+    #(
         test: [to-json #(
             "a" #(
                 "b" #(
@@ -73,7 +119,7 @@
                 )
             )
         )]
-        result: {{^/    "a": {^/        "b": {^/            "c": 3^/        }^/    }^/}}
+        result: {{"a":{"b":{"c":3}}}}
         type: string!
         status: Pass
     ) 
@@ -86,7 +132,7 @@
                 )
             )
         )]
-        result: {{^/    "a": {^/        "b": {^/            "c": 3,^/            "d": 4^/        }^/    }^/}}
+        result: {{"a":{"b":{"c":3,"d":4}}}}
         type: string!
         status: Pass
     ) 
@@ -101,7 +147,7 @@
             )
             "B" 2
         )]
-        result: {{^/    "A": 1,^/    "a": {^/        "b": {^/            "c": 3,^/            "d": [^/                "x",^/                "y",^/                [^/                    3,^/                    4^/                ],^/                "z"^/            ]^/        }^/    },^/    "B": 2^/}}
+        result: {{"A":1,"a":{"b":{"c":3,"d":["x","y",[3,4],"z"]}},"B":2}}
         type: string!
         status: Pass
     )
