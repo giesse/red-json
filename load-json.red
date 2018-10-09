@@ -127,7 +127,7 @@ context [
 			any [
 				some chars								; Pass over unescaped chars
 				| json-escaped							; Pass over simple backslash escapes
-				| change ["\u" copy c 4 hex-char] (decode-unicode-char c)
+				| change ["\u" copy c 4 hex-char] (decode-unicode-char c) ()
 				;| "\u" followed by anything else is an invalid \uXXXX escape
 			]
 		]
