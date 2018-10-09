@@ -59,7 +59,7 @@ Red [
 ]
 
 context [
-    common: do %common.red
+    #include %common.red
 
     decode-backslash-escapes: :common/decode-backslash-escapes
     json-esc-ch:              :common/json-esc-ch
@@ -219,8 +219,7 @@ context [
 	;-----------------------------------------------------------
 	;-- Main decoder func
 
-    export load-json: func [
-        [catch]
+    set 'load-json func [
         "Convert a JSON string to Red data"
         input [string!] "The JSON string"
     ] [

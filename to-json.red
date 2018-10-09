@@ -35,8 +35,6 @@ Red [
 ]
 
 context [
-    do %common.red ; just want export for right now
-
     indent: none
     indent-level: 0
     normal-chars: none
@@ -163,8 +161,7 @@ context [
         output
     ]
 
-    export to-json: function [
-        [catch]
+    set 'to-json function [
         "Convert Red data to a JSON string"
         data
         /pretty indent [string!] "Pretty format the output, using given indentation"

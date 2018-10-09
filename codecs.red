@@ -18,8 +18,8 @@ Red [
 	]
 ]
 
-do %load-json.red
-do %to-json.red
+#include %load-json.red
+#include %to-json.red
 
 append system/codecs reduce [
     'json context [

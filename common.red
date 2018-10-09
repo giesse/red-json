@@ -35,7 +35,7 @@ export: func [
     set bind word ctx :value
 ]
 
-context [
+common: context [
 	;-----------------------------------------------------------
 	;-- Generic support funcs
 
