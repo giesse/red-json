@@ -36,7 +36,7 @@ test-file?: func [file] [
 ]
 
 load-header: function [file] [
-    file: load file
+    file: load/all file
     unless file/1 = 'Red [cause-error "Not a Red file"]
     file/2: make map! file/2
     next file
@@ -60,10 +60,10 @@ run-test-file: function [file] [
                 return summary
             ]
         ]
-        print [tab "TESTS:" mold/only files-to-test]
+        print [tab "TESTS:" mold/only/flat files-to-test]
     ]
-    results: either exists? results-file [load results-file] [copy []]
-    perf: either exists? perf-file [load perf-file] [copy []]
+    results: either exists? results-file [load/all results-file] [copy []]
+    perf: either exists? perf-file [load/all perf-file] [copy []]
     until [
         file: next file
         throw-test: copy ""
@@ -87,7 +87,7 @@ run-test-file: function [file] [
         if perf-data/test <> current-result/test [
             print [tab "WARNING: Test" index? perf "has changed, can't accurately determine performance regressions"]
         ]
-        ; trick to determine if there was a throw: human is unique at this point and
+        ; trick to determine if there was a throw: throw-test is unique at this point and
         ; there is no way file/1 would accidentally throw it
         either same? throw-test catch [type: type?/word set/any 'result try file/1 throw-test] [
             ; no throw
@@ -98,6 +98,9 @@ run-test-file: function [file] [
                 ]
                 error? :result [
                     form result
+                ]
+                object? :result [
+                    body-of result
                 ]
                 'else [
                     :result
@@ -172,7 +175,7 @@ run-test-file: function [file] [
         ]
         append perf-data/samples time
         speed: time / perf-data/fastest
-        if speed > 1.05 [
+        if speed > 1.15 [
             print [tab "WARNING: Test" index? perf "ran" round/to speed 0.01 "times slower than fastest sample"]
             summary/perf-regressions: summary/perf-regressions + 1
         ]

@@ -19,7 +19,7 @@ Red [
 [loaded: load-json read %tests/data/pass0.json]
 [to-json/pretty loaded "    "]
 [loaded: load-json read %tests/data/pass1.json]
-[to-json/pretty loaded "    "]
+[to-json/pretty/ascii loaded "    "]
 [loaded: load-json read %tests/data/pass2.json]
 [to-json/pretty loaded "    "]
 [loaded: load-json read %tests/data/pass3.json]
