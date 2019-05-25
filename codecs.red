@@ -21,18 +21,17 @@ Red [
 #include %load-json.red
 #include %to-json.red
 
-append system/codecs reduce [
-    'json context [
-        Title:     "JSON codec"
-        Name:      'JSON
-        Mime-Type: [application/json]
-        Suffixes:  [%.json]
-        encode: func [data [any-type!] where [file! url! none!]] [
-            to-json data
-        ]
-        decode: func [text [string! file!]] [
-            if file? text [text: read text]
-            load-json text
-        ]
+put system/codecs 'json context [
+    Title:     "JSON codec"
+    Name:      'JSON
+    Mime-Type: [application/json]
+    Suffixes:  [%.json]
+    encode: func [data [any-type!] where [file! url! none!]] [
+        to-json data
+    ]
+    decode: func [text [string! binary! file!]] [
+        if file? text [text: read text]
+        if binary? text [text: to string! text]
+        load-json text
     ]
 ]

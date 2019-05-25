@@ -58,13 +58,13 @@ Red [
 	}
 ]
 
-context [
-    #include %common.red
+#include %common.red
 
-    decode-backslash-escapes: :common/decode-backslash-escapes
-    json-esc-ch:              :common/json-esc-ch
-    json-escaped:             :common/json-escaped
-	ctrl-char:                :common/ctrl-char
+context [
+    decode-backslash-escapes: :json-common/decode-backslash-escapes
+    json-esc-ch:              :json-common/json-esc-ch
+    json-escaped:             :json-common/json-escaped
+	ctrl-char:                :json-common/ctrl-char
 
 	;-----------------------------------------------------------
 	;-- JSON decoder

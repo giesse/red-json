@@ -24,18 +24,7 @@ Red [
 	]
 ]
 
-export: func [
-    "Export a value to the global context"
-    'word [set-word!]
-    value
-    /to ctx [any-word! any-object! function!]
-] [
-    set word :value
-    unless :ctx [ctx: system/words]
-    set bind word ctx :value
-]
-
-common: context [
+json-common: context [
 	;-----------------------------------------------------------
 	;-- Generic support funcs
 
